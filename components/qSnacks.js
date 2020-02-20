@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import {
+i/* mport {
   Carousel,
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
   CarouselCaption
-} from 'reactstrap';
+} from 'reactstrap'; */
 import Menu from './Menu';
 import {SNACKS} from '../shared/snacks';
 

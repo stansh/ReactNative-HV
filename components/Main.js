@@ -1,11 +1,12 @@
 import React, { Component} from 'react';
 /* import Header from './Header'; */
-import HealthThing from './HealthThing';
-import Snacks from './Snacks';
 import Recipes from './Recipes';
-import CateringForm from './CateringForm';
-import Menu from './Menu';
+/* import Snacks from './qSnacks';
 
+import CateringForm from './qCateringForm'; */
+/* import Menu from './Menu'; */
+
+import HealthThing from './HealthThing';
 import { View, Platform, StyleSheet, Text, ScrollView, Image } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { createStackNavigator, createDrawerNavigator, DrawerItems } from 'react-navigation';
@@ -23,13 +24,16 @@ const HealthThingNavigator = createStackNavigator(
           headerStyle: {
               backgroundColor: '#FFD459'
           },
+          title: 'The Health Thing',
           headerTintColor: '#fff',
           headerTitleStyle: {
-              color: '#fff'
+              color: '#0c8a42',
+              fontWeight: 'bold'
           },
           headerLeft: <Icon
               name='heartbeat'
               type='font-awesome'
+              
               iconStyle={styles.stackIcon}
               onPress={() => navigation.toggleDrawer()}
           />
@@ -37,21 +41,23 @@ const HealthThingNavigator = createStackNavigator(
   }
 );
 
-const SnacksNavigator = createStackNavigator(
+const RecipesNavigator = createStackNavigator(
   {
-    Snacks: { screen: Snacks }
+    Recipes: { screen: Recipes }
   },
   {
       navigationOptions: ({navigation}) => ({
           headerStyle: {
               backgroundColor: '#FFD459'
           },
+          title: 'Recipes',
           headerTintColor: '#fff',
           headerTitleStyle: {
-              color: '#fff'
+              color: '#0c8a42',
+              fontWeight: 'bold'
           },
           headerLeft: <Icon
-              name='carrot'
+              name='clipboard'
               type='font-awesome'
               iconStyle={styles.stackIcon}
               onPress={() => navigation.toggleDrawer()}
@@ -60,7 +66,7 @@ const SnacksNavigator = createStackNavigator(
   }
 );
 
-const MenuNavigator = createStackNavigator(
+/* const MenuNavigator = createStackNavigator(
   {
     Menu: { screen: Menu }
   },
@@ -81,7 +87,7 @@ const MenuNavigator = createStackNavigator(
           />
       })
   }
-);
+); */
 
 const CustomDrawerContentComponent = props => (
   <ScrollView>
@@ -117,12 +123,12 @@ const MainNavigator = createDrawerNavigator(
               )
           }
       },
-      Snacks: {
-          screen: SnacksNavigator,
+      Recipes: {
+          screen: RecipesNavigator,
           navigationOptions: {
               drawerIcon: ({tintColor}) => (
                   <Icon
-                      name='carrot'
+                      name='clipboard'
                       type='font-awesome'
                       size={24}
                       color={tintColor}
@@ -130,7 +136,7 @@ const MainNavigator = createDrawerNavigator(
               )
           }
       },
-      Menu: {
+    /*   Menu: {
           screen: MenuNavigator,
           navigationOptions: {
               drawerLabel: 'Menu',
@@ -144,7 +150,7 @@ const MainNavigator = createDrawerNavigator(
               )
           }
       },
-
+ */
       
       
       
@@ -153,7 +159,7 @@ const MainNavigator = createDrawerNavigator(
 
   },
   {
-      drawerBackgroundColor: '#d6483c',
+      drawerBackgroundColor: '#0c8a42',
       contentComponent: CustomDrawerContentComponent
   }
 );
@@ -178,8 +184,8 @@ class Main extends Component {
         flex: 1,
     },
     drawerHeader: {
-        backgroundColor: '#5637DD',
-        height: 140,
+        backgroundColor: '#0c8a42',
+        height: 100,
         alignItems: 'center',
         justifyContent: 'center',
         flex: 1,
@@ -191,13 +197,13 @@ class Main extends Component {
         fontWeight: 'bold'
     },
     drawerImage: {
-        margin: 10,
-        height: 60,
-        width: 60
+        margin: 20,
+        height: 40,
+        width: 40
     },
     stackIcon: {
-        marginLeft: 10,
-        color: '#fff',
+        marginLeft: 20,
+        color: '#0c8a42',
         fontSize: 24
     }
 });

@@ -1,47 +1,62 @@
-import React from 'react';
+import React, { Component } from 'react';
+
 /* import {
   Card, CardText, CardBody,
   CardTitle, ListGroup, ListGroupItem 
 } from 'reactstrap'; */
 
-import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
+import { View, Text, Animated, Image, ScrollView, FlatList} from 'react-native';
+import { Card, ListItem } from 'react-native-elements';
+
+/* import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards'; */
 
 
 const HealthThing = (props) => {
-  return (
-       
-             /*  <img width="100%" src="/images/pic21.jpg" alt="Card image cap" /> */
-          
-          <Card>
-                <CardImage ><img width="100%" src="/images/pic21.jpg" alt="Card image cap" /> </CardImage>
-                <CardTitle>Why hummus is great</CardTitle>
-                <CardContent>Hummus is typically made by blending chickpeas (garbanzo beans), tahini (ground sesame seeds), olive oil, lemon juice and garlic in a food processor. Not only is hummus delicious, but it is also versatile, packed with nutrients and has been linked to many impressive health and nutritional benefits. Hummus provides a wide variety of vitamins and minerals. It is also a great plant-based source of protein, which makes it a nutritious option for vegans and vegetarians.</CardText>
-            
-          </Card>
-          </div>
-      </div>
 
-      <div className='row'>
-          <div className='col-md'>   
-              <img width="100%" src="images/pic31.jpg" alt="Card image cap" />
-          </div> 
-          <div className='col-md'>
-          <Card>
-            <CardBody className='col-md text-align-right'>
-                <CardTitle>Why is it important to eat vegetablest</CardTitle>
-                <CardText>
-                  <ListGroup>
-                    <ListGroupItem>Most vegetables are naturally low in fat and calories. None have cholesterol. (Sauces or seasonings may add fat, calories, and/or cholesterol.)</ListGroupItem>
-                    <ListGroupItem>Vegetables are important sources of many nutrients, including potassium, dietary fiber, folate (folic acid), vitamin A, and vitamin C</ListGroupItem>
-                    <ListGroupItem>Diets rich in potassium may help to maintain healthy blood pressure. Vegetable sources of potassium include sweet potatoes, white potatoes, white beans, tomato products (paste, sauce, and juice), beet greens, soybeans, lima beans, spinach, lentils, and kidney beans.</ListGroupItem>
-                    
-                  </ListGroup>
-                </CardText>
-            </CardBody>
-          </Card>
-          </div>
-      </div>
-    </div>
+   
+  return (
+       <ScrollView>
+            <Card
+                featuredTitle="Why hummus is great"
+                image = {require('../assets/images/pic21.jpg')}
+                >
+                
+                <Text
+                    style={{margin: 10}} >
+                    Hummus is typically made by blending chickpeas (garbanzo beans), tahini (ground sesame seeds), olive oil, lemon juice and garlic in a food processor. Not only is hummus delicious, but it is also versatile, packed with nutrients and has been linked to many impressive health and nutritional benefits. Hummus provides a wide variety of vitamins and minerals. It is also a great plant-based source of protein, which makes it a nutritious option for vegans and vegetarians. 
+                </Text>
+                
+            </Card>
+
+            <Card
+                featuredTitle="Why is it important to eat vegetablest"
+                image = {require('../assets/images/pic31.jpg')}
+                >
+                
+                <Text
+                    style={{margin: 5}} >
+                    Most vegetables are naturally low in fat and calories. None have cholesterol. (Sauces or seasonings may add fat, calories, and/or cholesterol. 
+                </Text>
+                <Text
+                    style={{margin: 5}} >
+                    Vegetables are important sources of many nutrients, including potassium, dietary fiber, folate (folic acid), vitamin A, and vitamin C.
+                </Text>
+                <Text
+                    style={{margin: 5}} >
+                    Diets rich in potassium may help to maintain healthy blood pressure. Vegetable sources of potassium include sweet potatoes, white potatoes, white beans, tomato products (paste, sauce, and juice), beet greens, soybeans, lima beans, spinach, lentils, and kidney beans.
+                </Text>
+            </Card>
+
+        </ScrollView>
+             
+             
+        
+      
+           
+
+      
+          
+      
   );
 };
 
