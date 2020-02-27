@@ -1,5 +1,6 @@
 import React, { Component} from 'react';
-import { View, Text, Animated, Image, ScrollView, FlatList, StyleSheet} from 'react-native';
+import { View, Text, Animated, Image, ScrollView, FlatList, StyleSheet, SectionList} from 'react-native';
+import { Card, ListItem } from 'react-native-elements';
 
 
 const recipeList = [
@@ -38,64 +39,74 @@ const recipeList = [
     step3:'Add the hummus to a serving plate and garnish with olive oil, paprika and fresh parsley.',
     step4:'The hummus will last for up to a week in the fridge, if kept in a sealed container. You can also freeze the hummus in sealed containers for future use, then just thaw as needed. It is actually one of the most common foods I meal prep on a regular basis as it is so easy'
     },
-]
+];
 
+class Recipes extends Component {
+ 
 
+  render() {
+      const renderRecipe = ({item}) => {
+          return (
+              <ListItem
+                  title={item.name}
+                  
+                  style={styles.item}
+                  subtitle={
+                    <View style={styles.view}>
+                      <Text style={styles.step}>{item.step1}</Text> 
+                      <Text style={styles.step}>{item.step2}</Text>
+                      <Text style={styles.step}>{item.step3}</Text>
+                      <Text style={styles.step}>{item.step4}</Text>
+                      <Text style={styles.step}>{item.step5}</Text>
+                      <Text style={styles.step}>{item.step6}</Text>
+                    </View>
+                  }
+   
+              />
+          );
+      };
 
-
-
-function Item({ title }) {
-    return (
-      <View style={styles.item}>
-        <Text 
-        style={styles.title}
-        onPress={() => { this.setModalVisible(true);}}>
-        {title}
-        </Text>
-        <Text >{recipeList.step1}</Text>
-        <Text style={styles.step}>{recipeList.step2}</Text>
-        <Text style={styles.step}>{recipeList.step3}</Text>
-        <Text style={styles.step}>{recipeList.step4}</Text>
-        <Text style={styles.step}>{recipeList.step5}</Text>
-        <Text style={styles.step}>{recipeList.step6}</Text>
-      </View>
-    );
-  }
-  
-
-const Recipes = (props) => {
-    return (
+      return (
         <ScrollView>
-            <FlatList
+          <FlatList
             data={recipeList}
-            renderItem={({item}) => <Item title={item.name} />}
-            keyExtractor={item => item.id}
-            />
+            renderItem={renderRecipe}
+            keyExtractor={item=>item.id.toString()}
+            
+
+          />
 
         </ScrollView>
-    )
-}
+      );
+
+  }
+};
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1
-      
-    },
-    item: {
-      backgroundColor: '#0c8a42',
-      padding: 20,
-      marginVertical: 8,
-      marginHorizontal: 16,
-    },
-    title: {
-      fontSize: 20,
-      color:'white'
-    },
-    step: {
-        fontSize: 10,
-        color:'black'
-      }
-  });
+  container: {
+    flex: 1
+    
+  },
+  item: {
+    
+    color: '#0c8a42',
+    padding: 5,
+  
+    marginHorizontal: 10,
+    borderLeftColor: '#0c8a42',
+    borderLeftWidth:5
+  },
 
+  step:{
+    margin: 10,
+    fontSize: 15,
+    
+  },
+  
+  view:{
+    fontSize: 40,
+  }
+
+});
 
 export default Recipes;

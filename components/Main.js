@@ -113,28 +113,29 @@ const MainNavigator = createDrawerNavigator(
       HealthThing: {
           screen: HealthThingNavigator,
           navigationOptions: {
-              drawerIcon: ({tintColor}) => (
+              drawerIcon: 
                   <Icon
                       name='heartbeat'
                       type='font-awesome'
                       size={24}
-                      color={tintColor}
+                      color='white'
                   />
-              )
+              
           }
       },
       Recipes: {
           screen: RecipesNavigator,
-          navigationOptions: {
-              drawerIcon: ({tintColor}) => (
+          navigationOptions: { 
+              drawerIcon: 
                   <Icon
                       name='clipboard'
                       type='font-awesome'
                       size={24}
-                      color={tintColor}
+                      color='white'
                   />
-              )
-          }
+               },
+              
+            
       },
     /*   Menu: {
           screen: MenuNavigator,
