@@ -1,9 +1,9 @@
 import React, { Component} from 'react';
 /* import Header from './Header'; */
 import Recipes from './Recipes';
-/* import Snacks from './qSnacks';
-
-import CateringForm from './qCateringForm'; */
+import Snacks from './Snacks';
+ 
+/* import CateringForm from './qCateringForm';  */
 /* import Menu from './Menu'; */
 
 import HealthThing from './HealthThing';
@@ -66,28 +66,30 @@ const RecipesNavigator = createStackNavigator(
   }
 );
 
-/* const MenuNavigator = createStackNavigator(
+const SnacksNavigator = createStackNavigator(
   {
-    Menu: { screen: Menu }
+    Snacks: { screen: Snacks }
   },
   {
       navigationOptions: ({navigation}) => ({
           headerStyle: {
               backgroundColor: '#FFD459'
           },
+          title: 'Snacks',
           headerTintColor: '#fff',
           headerTitleStyle: {
-              color: '#fff'
+            color: '#0c8a42',
+            fontWeight: 'bold'
           },
           headerLeft: <Icon
-              name='bars'
+              name='pepper-hot'
               type='font-awesome'
               iconStyle={styles.stackIcon}
               onPress={() => navigation.toggleDrawer()}
           />
       })
   }
-); */
+);
 
 const CustomDrawerContentComponent = props => (
   <ScrollView>
@@ -123,6 +125,20 @@ const MainNavigator = createDrawerNavigator(
               
           }
       },
+      Snacks: {
+        screen: SnacksNavigator,
+        navigationOptions: { 
+            drawerIcon: 
+                <Icon
+                    name='carrot'
+                    type='font-awesome'
+                    size={24}
+                    color='white'
+                />
+             },
+            
+          
+    },
       Recipes: {
           screen: RecipesNavigator,
           navigationOptions: { 
