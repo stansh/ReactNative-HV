@@ -8,28 +8,28 @@ import * as Animatable from 'react-native-animatable';
 const snackData = [
   {
     id:0,
-    image: '../assets/iamges/CarPic23.png',
+    image: require('../assets/images/CarPic23.png'),
     altText: 'Hummus Flavors',
     caption: 'Hummus Flavors',
     selection: 'classic | red pepper | basil pesto | roasted garlic | lemon'
   },
   {
     id:1,
-    image: '../assets/images/CarPic47.png',
+    image: require('../assets/images/CarPic47.png'),
     altText: 'Veggies Selection',
     caption: 'Veggies Selection',
     selection: 'cucumbers | peppers | carrots | celery | broccoli'
   },
   {
     id:2,
-    image: '../assets/images/CarPic28.png',
+    image:require('../assets/images/pic47.jpg'),
     altText: 'Pitas Flavors',
     caption: 'Pitas Flavors',
-    selection: 'whole wheat | pita chips | pita with cheese '
+    selection: 'whole wheat | pita chips | pita with cheese'
   },
   {
     id:3,
-    image: '../assets/images/CarPic33.png',
+    image:require( '../assets/images/CarPic33.png'),
     altText: 'Juice Selection',
     caption: 'Juice Selection',
     selection: 'carrot | tomato | orange | mango | apple '
@@ -53,7 +53,7 @@ class Snacks extends Component {
                        caption={item.selection}
                        featured
                        /* onPress={() => navigate('CampsiteInfo', { campsiteId: item.id })} */
-                       imageSrc={item.image}
+                       imageSrc= {item.image}
                    />
              </Animatable.View> 
            );
