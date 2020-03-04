@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { View, Text, Animated, Image, ScrollView, FlatList, StyleSheet, SectionList} from 'react-native';
 import { Tile } from 'react-native-elements';
 import * as Animatable from 'react-native-animatable';
+import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace';
 
 
 const snackData = [
@@ -22,7 +23,7 @@ const snackData = [
   },
   {
     id:2,
-    image:require('../assets/images/pic47.jpg'),
+    image:require('../assets/images/CarPic28.png'),
     altText: 'Pitas Flavors',
     caption: 'Pitas Flavors',
     selection: 'whole wheat | pita chips | pita with cheese'
@@ -50,10 +51,15 @@ class Snacks extends Component {
                <Animatable.View animation='fadeInRightBig' duration={1000}> 
                    <Tile
                        title={item.caption}
+                       titleStyle = {styles.text}
                        caption={item.selection}
+                       
                        featured
                        /* onPress={() => navigate('CampsiteInfo', { campsiteId: item.id })} */
                        imageSrc= {item.image}
+                       
+                       
+                       
                    />
              </Animatable.View> 
            );
@@ -69,5 +75,16 @@ class Snacks extends Component {
        );
    }
 }
+
+
+const styles = StyleSheet.create({
+  text: {
+    color:'white',
+    
+  },
+
+
+ 
+});
 
 export default Snacks;

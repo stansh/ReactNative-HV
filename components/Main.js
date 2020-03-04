@@ -4,7 +4,7 @@ import Recipes from './Recipes';
 import Snacks from './Snacks';
  
 /* import CateringForm from './qCateringForm';  */
-/* import Menu from './Menu'; */
+import Menu from './Menu';
 
 import HealthThing from './HealthThing';
 import { View, Platform, StyleSheet, Text, ScrollView, Image } from 'react-native';
@@ -82,7 +82,7 @@ const SnacksNavigator = createStackNavigator(
             fontWeight: 'bold'
           },
           headerLeft: <Icon
-              name='pepper-hot'
+              name='sth-list'
               type='font-awesome'
               iconStyle={styles.stackIcon}
               onPress={() => navigation.toggleDrawer()}
@@ -90,6 +90,32 @@ const SnacksNavigator = createStackNavigator(
       })
   }
 );
+
+
+const MenuNavigator = createStackNavigator(
+    {
+      Menu: { screen: Menu }
+    },
+    {
+        navigationOptions: ({navigation}) => ({
+            headerStyle: {
+                backgroundColor: '#FFD459'
+            },
+            title: 'Snacks',
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              color: '#0c8a42',
+              fontWeight: 'bold'
+            },
+            headerLeft: <Icon
+                name='bars'
+                type='font-awesome'
+                iconStyle={styles.stackIcon}
+                onPress={() => navigation.toggleDrawer()}
+            />
+        })
+    }
+  );
 
 const CustomDrawerContentComponent = props => (
   <ScrollView>
@@ -112,48 +138,35 @@ const CustomDrawerContentComponent = props => (
 
 const MainNavigator = createDrawerNavigator(
   {
-      HealthThing: {
-          screen: HealthThingNavigator,
-          navigationOptions: {
-              drawerIcon: 
-                  <Icon
-                      name='heartbeat'
-                      type='font-awesome'
-                      size={24}
-                      color='white'
-                  />
-              
-          }
-      },
-      Snacks: {
-        screen: SnacksNavigator,
-        navigationOptions: { 
-            drawerIcon: 
-                <Icon
-                    name='carrot'
-                    type='font-awesome'
-                    size={24}
-                    color='white'
-                />
-             },
-            
-          
-    },
-      Recipes: {
-          screen: RecipesNavigator,
-          navigationOptions: { 
-              drawerIcon: 
-                  <Icon
-                      name='clipboard'
-                      type='font-awesome'
-                      size={24}
-                      color='white'
-                  />
-               },
-              
-            
-      },
-    /*   Menu: {
+        HealthThing: {
+            screen: HealthThingNavigator,
+            navigationOptions: {
+                drawerIcon: 
+                    <Icon
+                        name='heartbeat'
+                        type='font-awesome'
+                        size={24}
+                        color='white'
+                    />
+                
+            }
+        },
+
+        Snacks: {
+            screen: SnacksNavigator,
+            navigationOptions: { 
+                drawerIcon: 
+                    <Icon
+                        name='smile'
+                        type='font-awesome'
+                        size={24}
+                        color='white'
+                    />
+                }
+        },
+
+
+        Menu: {
           screen: MenuNavigator,
           navigationOptions: {
               drawerLabel: 'Menu',
@@ -167,18 +180,31 @@ const MainNavigator = createDrawerNavigator(
               )
           }
       },
- */
-      
-      
-      
+ 
 
-      
+        Recipes: {
+            screen: RecipesNavigator,
+            navigationOptions: { 
+                drawerIcon: 
+                    <Icon
+                        name='clipboard'
+                        type='font-awesome'
+                        size={24}
+                        color='white'
+                    />
+                },
+                
+                
+        },
 
-  },
+    },
+  
   {
       drawerBackgroundColor: '#0c8a42',
       contentComponent: CustomDrawerContentComponent
-  }
+  },
+
+  
 );
 
 
@@ -226,5 +252,6 @@ class Main extends Component {
 });
   
 /*   export default connect(null, mapDispatchToProps)(Main); */
-  export default (Main);
+
+  export default Main;
   
