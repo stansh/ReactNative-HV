@@ -1,31 +1,36 @@
 import React, { Component } from 'react';
-/* import { Button, Label, Col, Row } from 'reactstrap'; */
-/* import { Control, LocalForm, Errors} from 'react-redux-form'; */
+import { View, StyleSheet, ScrollView, Image } from 'react-native';
+import { Input, CheckBox, Button, Icon } from 'react-native-elements';
+/* import * as SecureStore from 'expo-secure-store';
+import * as ImagePicker from 'expo-image-picker';
+import * as Permissions from 'expo-permissions'; */
+/* import { createBottomTabNavigator } from 'react-navigation';
+import { baseUrl } from '../shared/baseUrl'; */
 
-const required = val => val && val.length;   
+/* const required = val => val && val.length;   
 const maxLength = len => val => !val || (val.length <= len);  
 const minLength = len => val => val && (val.length >= len);
 const isNumber = val => !isNaN(+val);
-const validEmail = val => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
+const validEmail = val => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val); */
 
 class CateringForm extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            firstName: '',
-            lastName: '',
+            firstname: '',
+            lastname: '',
             phoneNum: '',
             email: '',
             agree: false,
-            contactType: 'By Phone',
-            feedback: '',
-            touched: {
+            /* contactType: 'By Phone',
+            comments: '', */
+            /* touched: {
                 firstName: false,
                 lastName: false,
                 phoneNum: false,
                 email: false
-            }
+            } */
         };
 
 
@@ -39,13 +44,163 @@ handleSubmit(values) {
 }
 
 
-render() {
-        
-    return (
+static navigationOptions = {
+    title: 'Catering Request',
+    tabBarIcon: ({tintColor}) => (
+        <Icon
+            name='user-plus'
+            type='font-awesome'
+            iconStyle={{color: tintColor}}
+        />
+    )
+}
 
-                <div className="container">
+render() {
+        /* copied from LoginComponent */
+    return (
+             
+        <ScrollView>
+                {/* <View style={styles.container}>
+                    <View style={styles.imageContainer}>
+                        <Image
+                            source={{uri: this.state.imageUrl}} // to be replaced by a taken photo
+                            loadingIndicatorSource={require('./images/logo.png')} 
+                            style={styles.image}
+                        />
+                        <Button
+                            title='Camera'
+                            onPress={this.getImageFromCamera} 
+                        />
+                    </View> */}
+                    
+                    <Input
+                        placeholder='First Name'
+                        leftIcon={{type: 'font-awesome', name: 'user-o'}}
+                        onChangeText={firstname => this.setState({firstname})}
+                        value={this.state.firstname}
+                        containerStyle={styles.formInput}
+                        leftIconContainerStyle={styles.formIcon}
+                    />
+                    <Input
+                        placeholder='Last Name'
+                        leftIcon={{type: 'font-awesome', name: 'user-o'}}
+                        onChangeText={lastname => this.setState({lastname})}
+                        value={this.state.lastname}
+                        containerStyle={styles.formInput}
+                        leftIconContainerStyle={styles.formIcon}
+                    />
+                    <Input
+                        placeholder='Phone'
+                        leftIcon={{type: 'font-awesome', name: 'phone'}}
+                        onChangeText={phoneNum=> this.setState({phoneNum})}
+                        value={this.state.phoneNum}
+                        containerStyle={styles.formInput}
+                        leftIconContainerStyle={styles.formIcon}
+                    />
+                    <Input
+                        placeholder='Email'
+                        leftIcon={{type: 'font-awesome', name: 'envelope-o'}}
+                        onChangeText={email => this.setState({email})}
+                        value={this.state.email}
+                        containerStyle={styles.formInput}
+                        leftIconContainerStyle={styles.formIcon}
+                    />
+                    <CheckBox
+                        title='May we contact you?'
+                        center
+                        checked={this.state.agree}
+                        onPress={() => this.setState({agree: !this.state.agree})}
+                        containerStyle={styles.formCheckbox}
+                    />
+
+                    
+
+                    <View style={styles.formButton}>
+                        <Button
+                            onPress={() => this.handleSubmit()}
+                            title='Submit'
+                            icon={
+                                <Icon
+                                    name='envelope'
+                                    type='font-awesome'
+                                    color='#fff'
+                                    iconStyle={{marginRight: 10}}
+                                />
+                            }
+                            buttonStyle={{backgroundColor: '#5637DD'}}
+                        />
+                    </View>
+                
+
+            </ScrollView>
+        );
+
+    }
+}
+
+const styles = StyleSheet.create({
+    container: {
+        justifyContent: 'center',
+        margin: 10
+    },
+    formIcon: {
+        marginRight: 10
+    },
+    formInput: {
+        padding: 8
+    },
+    formCheckbox: {
+        margin: 8,
+        backgroundColor: null
+    },
+    formButton: {
+        margin: 20,
+        marginRight: 40,
+        marginLeft: 40
+    },
+    imageContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+        margin: 10
+    },
+    image: {
+        width: 60,
+        height: 60
+    }
+});
+
+export default CateringForm;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                {/* <div className="container">
                     <div className ='col-md-10'>
-                        <LocalForm model="feedbackForm" onSubmit={values => this.handleSubmit(values)}> {/* model="feedbackForm */}
+                        <LocalForm model="feedbackForm" onSubmit={values => this.handleSubmit(values)}> 
                                 <Row className="form-group">
                                     <Label htmlFor="firstName" md={2}>First Name</Label>
                                     <Col md={10}>
@@ -188,7 +343,6 @@ render() {
          
     );
 }
-}
+} */}
 
 
-export default CateringForm;

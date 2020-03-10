@@ -2,6 +2,7 @@ import React, { Component} from 'react';
 /* import Header from './Header'; */
 import Recipes from './Recipes';
 import Snacks from './Snacks';
+import CateringForm from './CateringForm';
  
 /* import CateringForm from './qCateringForm';  */
 import Menu from './Menu';
@@ -82,7 +83,7 @@ const SnacksNavigator = createStackNavigator(
             fontWeight: 'bold'
           },
           headerLeft: <Icon
-              name='sth-list'
+              name='ellipsis-v'
               type='font-awesome'
               iconStyle={styles.stackIcon}
               onPress={() => navigation.toggleDrawer()}
@@ -101,7 +102,7 @@ const MenuNavigator = createStackNavigator(
             headerStyle: {
                 backgroundColor: '#FFD459'
             },
-            title: 'Snacks',
+            title: 'Menu',
             headerTintColor: '#fff',
             headerTitleStyle: {
               color: '#0c8a42',
@@ -116,6 +117,35 @@ const MenuNavigator = createStackNavigator(
         })
     }
   );
+
+
+  const CateringFormNavigator = createStackNavigator(
+    {
+      CateringForm: { screen: CateringForm }
+    },
+    {
+        navigationOptions: ({navigation}) => ({
+            headerStyle: {
+                backgroundColor: '#FFD459'
+            },
+            title: 'Catering Request',
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              color: '#0c8a42',
+              fontWeight: 'bold'
+            },
+            headerLeft: <Icon
+                name='users'
+                type='font-awesome'
+                iconStyle={styles.stackIcon}
+                onPress={() => navigation.toggleDrawer()}
+            />
+        })
+    }
+  );
+
+
+  //DrawerHeader-------------
 
 const CustomDrawerContentComponent = props => (
   <ScrollView>
@@ -135,12 +165,15 @@ const CustomDrawerContentComponent = props => (
   </ScrollView>
 );
 
+//Main Drawer Navigation-------------------
 
 const MainNavigator = createDrawerNavigator(
   {
         HealthThing: {
             screen: HealthThingNavigator,
             navigationOptions: {
+                drawerLabel: 'The Health Thing',
+                
                 drawerIcon: 
                     <Icon
                         name='heartbeat'
@@ -155,12 +188,14 @@ const MainNavigator = createDrawerNavigator(
         Snacks: {
             screen: SnacksNavigator,
             navigationOptions: { 
+                drawerLabel: 'Snacks',
                 drawerIcon: 
                     <Icon
-                        name='smile'
-                        type='font-awesome'
-                        size={24}
-                        color='white'
+                    name='ellipsis-v'
+
+                    type='font-awesome'
+                    size={24}
+                    color='white'
                     />
                 }
         },
@@ -170,14 +205,16 @@ const MainNavigator = createDrawerNavigator(
           screen: MenuNavigator,
           navigationOptions: {
               drawerLabel: 'Menu',
-              drawerIcon: ({tintColor}) => (
+              
+              drawerIcon:
                   <Icon
                       name='bars'
                       type='font-awesome'
                       size={24}
-                      color={tintColor}
+                      color='white'
+                      
                   />
-              )
+              
           }
       },
  
@@ -185,6 +222,7 @@ const MainNavigator = createDrawerNavigator(
         Recipes: {
             screen: RecipesNavigator,
             navigationOptions: { 
+                drawerLabel: 'Recipes',
                 drawerIcon: 
                     <Icon
                         name='clipboard'
@@ -197,11 +235,30 @@ const MainNavigator = createDrawerNavigator(
                 
         },
 
+        CateringForm: {
+            screen: CateringFormNavigator,
+            navigationOptions: { 
+                drawerLabel: 'Catering Request',
+                drawerIcon: 
+                    <Icon
+                        name='users'
+                        
+                        type='font-awesome'
+                        size={24}
+                        color='white'
+                    />
+                },
+                
+                
+        },
+
+
     },
   
   {
       drawerBackgroundColor: '#0c8a42',
       contentComponent: CustomDrawerContentComponent
+      
   },
 
   
@@ -237,18 +294,21 @@ class Main extends Component {
     drawerHeaderText: {
         color: '#fff',
         fontSize: 24,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        margin: 20,
     },
     drawerImage: {
         margin: 20,
-        height: 40,
-        width: 40
+        height: 60,
+        width: 80
     },
     stackIcon: {
         marginLeft: 20,
         color: '#0c8a42',
         fontSize: 24
-    }
+    },
+
+   
 });
   
 /*   export default connect(null, mapDispatchToProps)(Main); */

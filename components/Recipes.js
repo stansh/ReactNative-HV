@@ -49,6 +49,7 @@ class Recipes extends Component {
           return (
               <ListItem
                   title={item.name}
+                  titleStyle={styles.title}
                   
                   style={styles.item}
                   subtitle={
@@ -103,8 +104,11 @@ const styles = StyleSheet.create({
     
   },
   
-  view:{
-    fontSize: 40,
+ 
+
+  title:{
+    fontSize: 20,
+    fontWeight: 'bold'
   }
 
 });
