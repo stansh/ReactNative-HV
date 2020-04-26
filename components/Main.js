@@ -14,6 +14,7 @@ import { createStackNavigator, createDrawerNavigator, DrawerItems } from 'react-
 import SafeAreaView from 'react-native-safe-area-view';  
 /* import { connect } from 'react-redux';
 import { fetchCampsites, fetchComments, fetchPromotions, fetchPartners } from '../redux/ActionCreators'; */
+import { useFonts } from '@use-expo/font';
 
 
 const HealthThingNavigator = createStackNavigator(
@@ -289,13 +290,15 @@ class Main extends Component {
         alignItems: 'center',
         justifyContent: 'center',
         flex: 1,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        
     },
     drawerHeaderText: {
         color: '#fff',
         fontSize: 24,
-        fontWeight: 'bold',
+        
         margin: 20,
+        fontFamily: 'Kalam-Bold'
     },
     drawerImage: {
         margin: 20,

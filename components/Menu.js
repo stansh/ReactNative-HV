@@ -134,6 +134,7 @@ function Menu () {
                     data={PlatesData}
                     renderItem={RenderMenuItem}
                     keyExtractor={item => item.id}  
+                    
                 />
                 <Text style={styles.header}>By Weight</Text>
 
@@ -159,16 +160,20 @@ function Menu () {
           padding: 20,
           marginVertical: 8,
           marginHorizontal: 16,
+          fontFamily: 'AmaticSC-Regular'
+          
+
         },
         color: {
           fontSize: 25,
           color:'#0c8a42'
         },
         header:{
-            fontSize: 25,
+            fontSize: 30,
             backgroundColor:'#d6483c',
             padding: 20,
-            color: 'white'
+            color: 'white',
+            fontFamily: 'Kalam-Bold'
 
 
         }
