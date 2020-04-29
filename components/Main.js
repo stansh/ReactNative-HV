@@ -29,8 +29,10 @@ const HealthThingNavigator = createStackNavigator(
           title: 'The Health Thing',
           headerTintColor: '#fff',
           headerTitleStyle: {
-              color: '#0c8a42',
-              fontWeight: 'bold'
+              color: '#0c8a42', 
+              fontFamily: 'AmaticSC-Bold',
+              fontSize:40
+              
           },
           headerLeft: <Icon
               name='heartbeat'
@@ -56,7 +58,9 @@ const RecipesNavigator = createStackNavigator(
           headerTintColor: '#fff',
           headerTitleStyle: {
               color: '#0c8a42',
-              fontWeight: 'bold'
+              fontFamily: 'AmaticSC-Bold',
+              fontSize:40
+              
           },
           headerLeft: <Icon
               name='clipboard'
@@ -81,7 +85,9 @@ const SnacksNavigator = createStackNavigator(
           headerTintColor: '#fff',
           headerTitleStyle: {
             color: '#0c8a42',
-            fontWeight: 'bold'
+            fontFamily: 'AmaticSC-Bold',
+            fontSize:40
+              
           },
           headerLeft: <Icon
               name='ellipsis-v'
@@ -107,7 +113,10 @@ const MenuNavigator = createStackNavigator(
             headerTintColor: '#fff',
             headerTitleStyle: {
               color: '#0c8a42',
-              fontWeight: 'bold'
+              fontFamily: 'AmaticSC-Bold',
+              fontSize:40
+              
+              
             },
             headerLeft: <Icon
                 name='bars'
@@ -133,7 +142,10 @@ const MenuNavigator = createStackNavigator(
             headerTintColor: '#fff',
             headerTitleStyle: {
               color: '#0c8a42',
-              fontWeight: 'bold'
+              fontFamily: 'AmaticSC-Bold',
+              fontSize:40
+              
+              
             },
             headerLeft: <Icon
                 name='users'
@@ -174,6 +186,7 @@ const MainNavigator = createDrawerNavigator(
             screen: HealthThingNavigator,
             navigationOptions: {
                 drawerLabel: 'The Health Thing',
+                
                 
                 drawerIcon: 
                     <Icon
@@ -224,6 +237,7 @@ const MainNavigator = createDrawerNavigator(
             screen: RecipesNavigator,
             navigationOptions: { 
                 drawerLabel: 'Recipes',
+                
                 drawerIcon: 
                     <Icon
                         name='clipboard'
@@ -240,6 +254,9 @@ const MainNavigator = createDrawerNavigator(
             screen: CateringFormNavigator,
             navigationOptions: { 
                 drawerLabel: 'Catering Request',
+                
+                
+                
                 drawerIcon: 
                     <Icon
                         name='users'
@@ -258,6 +275,19 @@ const MainNavigator = createDrawerNavigator(
   
   {
       drawerBackgroundColor: '#0c8a42',
+      contentOptions:{
+        activeTintColor:'#0c8a42',
+        activeBackgroundColor: '#FFD459',
+        inactiveTintColor:'#eee',
+        labelStyle: {
+            fontFamily: 'Kalam-Regular',
+            fontWeight: '10',
+            fontSize: 18
+            
+          },
+       
+    },
+
       contentComponent: CustomDrawerContentComponent
       
   },
@@ -295,10 +325,9 @@ class Main extends Component {
     },
     drawerHeaderText: {
         color: '#fff',
-        fontSize: 24,
-        
+        fontSize: 35, 
         margin: 20,
-        fontFamily: 'Kalam-Bold'
+        fontFamily: 'AmaticSC-Bold'
     },
     drawerImage: {
         margin: 20,
@@ -309,7 +338,7 @@ class Main extends Component {
         marginLeft: 20,
         color: '#0c8a42',
         fontSize: 24
-    },
+    }
 
    
 });

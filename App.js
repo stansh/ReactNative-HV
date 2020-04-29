@@ -13,6 +13,7 @@ console.disableYellowBox = true;
 
 let customFonts = {
     "Kalam-Bold" : require ('./assets/fonts/Kalam-Bold.ttf'),
+    "Kalam-Regular" : require ('./assets/fonts/Kalam-Regular.ttf'),
     "Kalam-Light" : require ('./assets/fonts/Kalam-Light.ttf'),
     "AmaticSC-Bold" : require ('./assets/fonts/AmaticSC-Bold.ttf'),
     "AmaticSC-Regular" : require ('./assets/fonts/AmaticSC-Regular.ttf'),
