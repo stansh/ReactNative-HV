@@ -1,9 +1,88 @@
 import React, { Component} from 'react';
 import { View, Text, Animated, Image, ScrollView, FlatList, StyleSheet, SectionList} from 'react-native';
 import { Card, ListItem } from 'react-native-elements';
+import { recipeData } from '../shared/recipeData';
 
+const recipes = recipeData;
 
-const recipeList = [
+class Recipes extends Component {
+ 
+
+  render() {
+      const renderRecipe = ({item}) => {
+          return (
+              <ListItem
+                  title={item.name}
+                  titleStyle={styles.title}
+                  
+                  style={styles.item}
+                  subtitle={
+                    <View style={styles.view}>
+                      <Text style={styles.step}>{item.step1}</Text> 
+                      <Text style={styles.step}>{item.step2}</Text>
+                      <Text style={styles.step}>{item.step3}</Text>
+                      <Text style={styles.step}>{item.step4}</Text>
+                      <Text style={styles.step}>{item.step5}</Text>
+                      <Text style={styles.step}>{item.step6}</Text>
+                    </View>
+                  }
+   
+              />
+          );
+      };
+
+      return (
+        <ScrollView>
+          <FlatList
+            data={recipes}
+            renderItem={renderRecipe}
+            keyExtractor={item=>item.id.toString()}
+            
+
+          />
+
+        </ScrollView>
+      );
+
+  }
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+    
+  },
+  item: {
+    
+    color: '#0c8a42',
+    padding: 5,
+  
+    marginHorizontal: 10,
+    borderLeftColor: '#0c8a42',
+    borderLeftWidth:5
+  },
+
+  step:{
+    margin: 10,
+    fontSize: 15,
+    
+    
+    
+  },
+  
+ 
+
+  title:{
+    fontSize: 20,
+    fontFamily: 'Kalam-Bold',
+    color: '#0c8a42'
+  }
+
+});
+
+export default Recipes;
+
+/* const recipeList = [
     {
     id: 0,
     name:'Recipe 1',
@@ -39,78 +118,4 @@ const recipeList = [
     step3:'Add the hummus to a serving plate and garnish with olive oil, paprika and fresh parsley.',
     step4:'The hummus will last for up to a week in the fridge, if kept in a sealed container. You can also freeze the hummus in sealed containers for future use, then just thaw as needed. It is actually one of the most common foods I meal prep on a regular basis as it is so easy'
     },
-];
-
-class Recipes extends Component {
- 
-
-  render() {
-      const renderRecipe = ({item}) => {
-          return (
-              <ListItem
-                  title={item.name}
-                  titleStyle={styles.title}
-                  
-                  style={styles.item}
-                  subtitle={
-                    <View style={styles.view}>
-                      <Text style={styles.step}>{item.step1}</Text> 
-                      <Text style={styles.step}>{item.step2}</Text>
-                      <Text style={styles.step}>{item.step3}</Text>
-                      <Text style={styles.step}>{item.step4}</Text>
-                      <Text style={styles.step}>{item.step5}</Text>
-                      <Text style={styles.step}>{item.step6}</Text>
-                    </View>
-                  }
-   
-              />
-          );
-      };
-
-      return (
-        <ScrollView>
-          <FlatList
-            data={recipeList}
-            renderItem={renderRecipe}
-            keyExtractor={item=>item.id.toString()}
-            
-
-          />
-
-        </ScrollView>
-      );
-
-  }
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-    
-  },
-  item: {
-    
-    color: '#0c8a42',
-    padding: 5,
-  
-    marginHorizontal: 10,
-    borderLeftColor: '#0c8a42',
-    borderLeftWidth:5
-  },
-
-  step:{
-    margin: 10,
-    fontSize: 15,
-    
-  },
-  
- 
-
-  title:{
-    fontSize: 20,
-    fontWeight: 'bold'
-  }
-
-});
-
-export default Recipes;
+]; */

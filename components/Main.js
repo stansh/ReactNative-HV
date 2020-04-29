@@ -29,9 +29,9 @@ const HealthThingNavigator = createStackNavigator(
           title: 'The Health Thing',
           headerTintColor: '#fff',
           headerTitleStyle: {
-              color: '#0c8a42', 
+              color: '#d6483c', 
               fontFamily: 'AmaticSC-Bold',
-              fontSize:40
+              fontSize:45
               
           },
           headerLeft: <Icon
@@ -57,9 +57,10 @@ const RecipesNavigator = createStackNavigator(
           title: 'Recipes',
           headerTintColor: '#fff',
           headerTitleStyle: {
-              color: '#0c8a42',
+              color: '#d6483c',
               fontFamily: 'AmaticSC-Bold',
-              fontSize:40
+              fontSize:45
+              
               
           },
           headerLeft: <Icon
@@ -84,9 +85,10 @@ const SnacksNavigator = createStackNavigator(
           title: 'Snacks',
           headerTintColor: '#fff',
           headerTitleStyle: {
-            color: '#0c8a42',
+            color: '#d6483c',
             fontFamily: 'AmaticSC-Bold',
-            fontSize:40
+            fontSize:45
+            
               
           },
           headerLeft: <Icon
@@ -112,9 +114,10 @@ const MenuNavigator = createStackNavigator(
             title: 'Menu',
             headerTintColor: '#fff',
             headerTitleStyle: {
-              color: '#0c8a42',
+              color: '#d6483c',
               fontFamily: 'AmaticSC-Bold',
-              fontSize:40
+              fontSize:45
+              
               
               
             },
@@ -141,9 +144,10 @@ const MenuNavigator = createStackNavigator(
             title: 'Catering Request',
             headerTintColor: '#fff',
             headerTitleStyle: {
-              color: '#0c8a42',
+              color: '#d6483c',
               fontFamily: 'AmaticSC-Bold',
-              fontSize:40
+              fontSize:40,
+              marginLeft: 20
               
               
             },
@@ -336,8 +340,8 @@ class Main extends Component {
     },
     stackIcon: {
         marginLeft: 20,
-        color: '#0c8a42',
-        fontSize: 24
+        color: '#d6483c',
+        fontSize: 25
     }
 
    

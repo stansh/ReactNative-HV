@@ -127,7 +127,7 @@ render() {
                                     iconStyle={{marginRight: 10}}
                                 />
                             }
-                            buttonStyle={{backgroundColor: '#5637DD'}}
+                            buttonStyle={{backgroundColor: '#0c8a42'}}
                         />
                     </View>
                 

@@ -17,8 +17,11 @@ const HealthThing = (props) => {
   return (
        <ScrollView>
             <Card
-                featuredTitle="Why hummus is great"
+                title="Why hummus is great?"
                 image = {require('../assets/images/pic21.jpg')}
+                titleStyle = {{color: '#0c8a42',fontSize: 20}}
+                
+                   
                 >
                 
                 <Text
@@ -29,8 +32,9 @@ const HealthThing = (props) => {
             </Card>
 
             <Card
-                featuredTitle="Why is it important to eat vegetablest"
+                title="Why is it important to eat vegetables?"
                 image = {require('../assets/images/pic31.jpg')}
+                titleStyle = {{color: '#0c8a42',fontSize: 20}}
                 >
                 
                 <Text

@@ -4,9 +4,71 @@ import { View, Text, Animated, Image, ScrollView, FlatList, StyleSheet, SectionL
 import { Tile } from 'react-native-elements';
 import * as Animatable from 'react-native-animatable';
 import symbolicateStackTrace from 'react-native/Libraries/Core/Devtools/symbolicateStackTrace';
+import { SNACKS } from '../shared/snacks'
+
+const snackData = SNACKS;
+
+class Snacks extends Component {
 
 
-const snackData = [
+   static navigationOptions = {
+       title: 'Snacks'
+   };
+
+   render() {
+       
+       const renderSnackItem = ({item}) => {
+           return (
+               <Animatable.View animation='fadeInRightBig' duration={1000}> 
+                   <Tile
+                       title={item.caption}
+                       titleStyle = {styles.text}
+                       caption={item.selection}
+                       titleStyle = {{backgroundColor: 'rgba(52, 52, 52, 0.8)'}}
+                       captionStyle = {{backgroundColor: 'rgba(52, 52, 52, 0.8)' }}
+                       
+                       
+                      
+                       featured
+                       /* onPress={() => navigate('CampsiteInfo', { campsiteId: item.id })} */
+                       imageSrc= {item.image}
+                       
+                       
+                       
+                   />
+             </Animatable.View> 
+           );
+       };
+
+        
+       return (
+           <FlatList
+               data={snackData}
+               renderItem={renderSnackItem}
+               keyExtractor={item => item.id.toString()}
+           />
+       );
+   }
+}
+
+
+const styles = StyleSheet.create({
+  text: {
+    color:'#0c8a42'
+    
+    
+  },
+
+
+ 
+});
+
+export default Snacks;
+
+
+
+
+/* const snackData = [
   {
     id:0,
     image: require('../assets/images/CarPic23.png'),
@@ -36,55 +98,4 @@ const snackData = [
     selection: 'carrot | tomato | orange | mango | apple '
   }
 ];
-
-class Snacks extends Component {
-
-
-   static navigationOptions = {
-       title: 'Snacks'
-   };
-
-   render() {
-       
-       const renderSnackItem = ({item}) => {
-           return (
-               <Animatable.View animation='fadeInRightBig' duration={1000}> 
-                   <Tile
-                       title={item.caption}
-                       titleStyle = {styles.text}
-                       caption={item.selection}
-                       
-                       featured
-                       /* onPress={() => navigate('CampsiteInfo', { campsiteId: item.id })} */
-                       imageSrc= {item.image}
-                       
-                       
-                       
-                   />
-             </Animatable.View> 
-           );
-       };
-
-        
-       return (
-           <FlatList
-               data={snackData}
-               renderItem={renderSnackItem}
-               keyExtractor={item => item.id.toString()}
-           />
-       );
-   }
-}
-
-
-const styles = StyleSheet.create({
-  text: {
-    color:'white',
-    
-  },
-
-
- 
-});
-
-export default Snacks;
+ */
